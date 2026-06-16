@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIDI 대고객 커뮤니케이션 가이드</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #F0F2F5;
+    padding: 36px 32px 56px;
+    -webkit-font-smoothing: antialiased;
+    color: #111;
+  }
+  .nl { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+  /* HEADER */
+  .hd { background: #fff; border-radius: 16px; padding: 28px 36px 26px; }
+  .hd-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .logo { font-size: 20px; font-weight: 900; color: #1E9EFF; letter-spacing: -0.02em; }
+  .issue { font-size: 14px; color: #BBB; font-weight: 500; }
+  .hd-rule { height: 1px; background: #F0F0F0; margin-bottom: 20px; }
+  .hd-title { font-size: 34px; font-weight: 900; color: #111; margin-bottom: 20px; line-height: 1.2; }
+  .hd-title .acc { color: #FF6B35; }
+
+  .dates-box { background: #EBF6FF; border-radius: 12px; padding: 14px 20px; }
+  .dates-items { display: flex; gap: 10px; flex: 1; }
+  .date-pill { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid #D0E8FF; border-radius: 8px; padding: 8px 16px; flex: 1; }
+  .date-chip { font-size: 11px; font-weight: 700; color: #fff; background: #1E9EFF; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+  .date-name { font-size: 14px; font-weight: 700; color: #1A5FA8; }
+
+  /* MID GRID */
+  .mid-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .card { background: #fff; border-radius: 16px; padding: 26px 30px; border: 1.5px solid #A8D4FF; border-top: 4px solid #1E9EFF; }
+  .card-heading { font-size: 17px; font-weight: 900; color: #111; padding-bottom: 14px; border-bottom: 2px solid #1E9EFF; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .card-heading::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #1E9EFF; flex-shrink: 0; }
+
+  .t3-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #F4F4F4; }
+  .t3-item:first-child { padding-top: 0; }
+  .t3-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .t3-num { width: 26px; height: 26px; border-radius: 50%; background: #1E9EFF; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .t3-body { flex: 1; }
+  .t3-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 6px; }
+  .t3-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .t3-list li { font-size: 13px; color: #555; line-height: 1.65; padding-left: 12px; position: relative; }
+  .t3-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: #1E9EFF; }
+
+  .card-case { background: #fff; border-radius: 16px; padding: 26px 30px; border: 1.5px solid #A8D4FF; border-top: 4px solid #1E9EFF; }
+  .card-case .card-heading { border-bottom: 2px solid #1E9EFF; }
+
+  .case-name { background: #F5F7FA; border-left: 3px solid #1E9EFF; border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 18px; font-size: 15px; font-weight: 700; color: #111; }
+  .sub-block { margin-bottom: 14px; }
+  .sub-block:last-child { margin-bottom: 0; }
+  .sub-label { font-size: 13px; font-weight: 700; color: #111; margin-bottom: 6px; display: flex; align-items: center; gap: 7px; }
+  .sub-label::before { content: ""; display: inline-block; width: 3px; height: 13px; border-radius: 2px; background: #1E9EFF; flex-shrink: 0; }
+  .sub-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .sub-list li { font-size: 13px; color: #444; line-height: 1.65; padding-left: 12px; position: relative; }
+  .sub-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: #CCC; }
+
+  .insight-block { background: #EBF6FF; border-radius: 10px; padding: 14px 16px; margin-top: 14px; }
+  .insight-label { font-size: 13px; font-weight: 700; color: #1E9EFF; margin-bottom: 8px; }
+  .insight-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .insight-list li { font-size: 13px; color: #1A5FA8; line-height: 1.65; padding-left: 12px; position: relative; }
+  .insight-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: #1E9EFF; }
+
+  .check-block { background: #fff; border-radius: 16px; padding: 26px 30px; }
+  .check-heading { font-size: 16px; font-weight: 900; color: #1E9EFF; padding-bottom: 14px; border-bottom: 2px solid #1E9EFF; margin-bottom: 18px; }
+  .check-items { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 40px; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .check-list li { font-size: 14px; color: #333; line-height: 1.65; padding-left: 26px; position: relative; }
+  .check-list li::before {
+    content: ""; position: absolute; left: 0; top: 2px; width: 15px; height: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'%3E%3Crect x='0.75' y='0.75' width='13.5' height='13.5' rx='2.5' fill='%231E9EFF' stroke='%231E9EFF' stroke-width='0'/%3E%3Cpath d='M3.5 7.5L6 10L11 5' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+    background-size: contain; background-repeat: no-repeat;
+  }
+
+  .quote-block { background: #1E9EFF; border-radius: 16px; padding: 20px 32px; display: flex; align-items: center; gap: 20px; }
+  .quote-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); white-space: nowrap; flex-shrink: 0; }
+  .quote-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.25); flex-shrink: 0; }
+  .quote-text { font-size: 17px; font-weight: 700; color: #fff; line-height: 1.5; }
+
+  /* ARCHIVE */
+  .archive { padding: 10px 4px; }
+  .archive-heading {
+    font-size: 15px; font-weight: 700; color: #111;
+    padding-bottom: 14px; border-bottom: 1px solid #F0F0F0;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .archive-heading::before {
+    content: ""; display: inline-block;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: #CCC; flex-shrink: 0;
+  }
+  .archive-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .archive-item {
+    display: flex; align-items: center; gap: 10px;
+    background: #F7F8FA;
+    border: 1px solid #E8E8E8;
+    border-radius: 10px;
+    padding: 12px 18px;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+    min-width: 160px;
+  }
+  .archive-item:hover { background: #EBF6FF; border-color: #A8D4FF; }
+  .archive-item-month { font-size: 14px; font-weight: 700; color: #111; }
+  .archive-item-label { font-size: 12px; color: #AAA; }
+  .archive-item-arrow { margin-left: auto; font-size: 12px; color: #BBB; }
+
+  .archive-empty { font-size: 13px; color: #BBB; padding: 8px 0; }
+
+  /* FOOTER */
+  .footer { text-align: right; padding: 0 4px; }
+  .footer-text { font-size: 13px; color: #AAA; }
+</style>
+</head>
+<body>
+<div class="nl">
+
+  <!-- ── 이달 가이드 ── -->
+  <div class="hd">
+    <div class="hd-top"><span class="logo">RIDI</span><span class="issue">2026 · 06</span></div>
+    <div class="hd-rule"></div>
+    <div class="hd-title">대고객 커뮤니케이션 가이드 <span class="acc">6월</span></div>
+    <div class="dates-box">
+      <div class="dates-items">
+        <div class="date-pill"><span class="date-chip">6월 6일</span><span class="date-name">현충일</span></div>
+        <div class="date-pill"><span class="date-chip">6월 10일</span><span class="date-name">6.10 민주항쟁 기념일</span></div>
+        <div class="date-pill"><span class="date-chip">6월 25일</span><span class="date-name">6.25 전쟁일</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mid-grid">
+    <div class="card">
+      <div class="card-heading">이달의 핵심 유의사항 Top 3</div>
+      <div class="t3-item">
+        <div class="t3-num">1</div>
+        <div class="t3-body">
+          <div class="t3-title">현충일·6.25 관련 표현 주의</div>
+          <ul class="t3-list">
+            <li>군사·전쟁·폭격·탱크 등 표현 사용 시 맥락 재확인</li>
+            <li>이벤트/프로모션 문구와 결합 시 주의</li>
+            <li>역사적 기념일 전후 마케팅 메시지 점검</li>
+          </ul>
+        </div>
+      </div>
+      <div class="t3-item">
+        <div class="t3-num">2</div>
+        <div class="t3-body">
+          <div class="t3-title">정치·선거 연상 표현 주의</div>
+          <ul class="t3-list">
+            <li>투표, 당선, 여/야당, 부정선거 연상 표현 사용 자제</li>
+            <li>정치 관련 밈 및 시사 이슈 차용 금지</li>
+          </ul>
+        </div>
+      </div>
+      <div class="t3-item">
+        <div class="t3-num">3</div>
+        <div class="t3-body">
+          <div class="t3-title">커뮤니티 은어 및 밈 사용 주의</div>
+          <ul class="t3-list">
+            <li>출처와 의미를 명확히 알지 못하는 밈 사용 금지</li>
+            <li>특정 커뮤니티에서만 사용되는 표현은 사전 확인 후 활용</li>
+            <li>'요즘 유행한다'는 이유만으로 사용하지 않기</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-case">
+      <div class="card-heading">최근 기업 이슈 사례</div>
+      <div class="case-name">스타벅스 '탱크데이' 논란</div>
+      <div class="sub-block">
+        <div class="sub-label">무슨 일이 있었나</div>
+        <ul class="sub-list">
+          <li>5월 프로모션에서 '탱크데이' 마케팅 메시지 사용</li>
+          <li>게시 시점이 5.18 민주화운동 기념 기간과 겹치며 논란 발생</li>
+        </ul>
+      </div>
+      <div class="sub-block">
+        <div class="sub-label">왜 문제가 됐나</div>
+        <ul class="sub-list">
+          <li>광주 민주화운동 당시 계엄군 무력 진압을 연상시킨다는 비판</li>
+          <li>기업 의도와 무관하게 역사적 맥락 고려가 부족했다는 평가 확산</li>
+        </ul>
+      </div>
+      <div class="insight-block">
+        <div class="insight-label">💡 시사점</div>
+        <ul class="insight-list">
+          <li>단어 사용 시 '시점 + 맥락 + 사회적 기억'의 결합을 확인</li>
+          <li>마케팅 의도보다 소비자가 어떻게 해석하는지가 중요</li>
+          <li>역사적 기념일 전후에는 평소 표현도 다른 의미로 읽힐 수 있음</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="check-block">
+    <div class="check-heading">실무 체크 포인트</div>
+    <div class="check-items">
+      <ul class="check-list">
+        <li>역사적 기념일 및 추모 기간 등 '이슈 캘린더' 확인</li>
+        <li>군사/폭력/국가 권력 관련 표현 사용 시 재검토</li>
+      </ul>
+      <ul class="check-list">
+        <li>사회적 사건과 연결될 수 있는 연상 요소 점검</li>
+        <li>"우리는 그런 의도가 아니었다"는 설명이 필요한 상황을 만들지 않기</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-eyebrow">이달의 한 줄 요약</span>
+    <div class="quote-divider"></div>
+    <div class="quote-text">기념일과 프로모션 문구를 함께 사용할 때는 사회적 맥락을 반드시 확인한다.</div>
+  </div>
+
+  <!-- ── 지난 가이드 아카이브 ── -->
+  <div class="archive">
+    <div class="archive-heading">지난 가이드 보기</div>
+    <div class="archive-list">
+      <!-- 매달 아래 형식으로 추가하세요 -->
+      <!-- <a href="archive/2026-05.html" class="archive-item">
+        <span class="archive-item-month">2026년 5월</span>
+        <span class="archive-item-label">가이드</span>
+        <span class="archive-item-arrow">→</span>
+      </a> -->
+      <div class="archive-empty">지난 가이드가 쌓이면 여기에 표시됩니다.</div>
+    </div>
+  </div>
+
+  <div class="footer"><span class="footer-text">by PR team</span></div>
+
+</div>
+</body>
+</html>
